@@ -1,0 +1,5 @@
+# ninja log v5
+1	25357	1711191849847390590	/mnt/PoinTr/extensions/cubic_feature_sampling/build/temp.linux-x86_64-cpython-310/cubic_feature_sampling_cuda.o	ec432de953eeeb44
+0	63735	1711191888233328211	/mnt/PoinTr/extensions/cubic_feature_sampling/build/temp.linux-x86_64-cpython-310/cubic_feature_sampling.o	323eb4b8edf98248
+14	40574	1733066008066431043	/mnt/PointDA/extensions/cubic_feature_sampling/build/temp.linux-x86_64-cpython-310/cubic_feature_sampling_cuda.o	f73b4ddd85c1d06f
+14	95582	1733066063086176156	/mnt/PointDA/extensions/cubic_feature_sampling/build/temp.linux-x86_64-cpython-310/cubic_feature_sampling.o	8a480248d2cd65

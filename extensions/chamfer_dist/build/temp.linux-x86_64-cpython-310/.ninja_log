@@ -1,0 +1,5 @@
+# ninja log v5
+1	24964	1711191781727745885	/mnt/PoinTr/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-310/chamfer_cuda.o	27a120e4582b1b61
+1	63440	1711191820208330797	/mnt/PoinTr/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-310/chamfer.o	fc775008b6827260
+15	40546	1733065908185234256	/mnt/PointDA/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-310/chamfer_cuda.o	eb640ce5bf8d8432
+14	93727	1733065961380692296	/mnt/PointDA/extensions/chamfer_dist/build/temp.linux-x86_64-cpython-310/chamfer.o	4d61e8b601cdbbe0

@@ -1,0 +1,5 @@
+# ninja log v5
+1	25544	1711191989701567431	/mnt/PoinTr/extensions/gridding_loss/build/temp.linux-x86_64-cpython-310/gridding_distance_cuda.o	fca5e641295e8420
+1	65398	1711192029568334503	/mnt/PoinTr/extensions/gridding_loss/build/temp.linux-x86_64-cpython-310/gridding_distance.o	b90c2f03c55f1a3e
+15	37492	1733066211860469855	/mnt/PointDA/extensions/gridding_loss/build/temp.linux-x86_64-cpython-310/gridding_distance_cuda.o	14b02f6bb0cb8da6
+15	94423	1733066268806952698	/mnt/PointDA/extensions/gridding_loss/build/temp.linux-x86_64-cpython-310/gridding_distance.o	40806a56a7552cca
