@@ -1,0 +1,122 @@
+2024-12-01 15:19:54,524 - AdaPoinTr - INFO - Copy the Config file from ./cfgs/PCN_models/AdaPoinTr.yaml to ./experiments/AdaPoinTr/PCN_models/test_example/config.yaml
+2024-12-01 15:19:54,524 - AdaPoinTr - INFO - args.config : ./cfgs/PCN_models/AdaPoinTr.yaml
+2024-12-01 15:19:54,524 - AdaPoinTr - INFO - args.launcher : none
+2024-12-01 15:19:54,525 - AdaPoinTr - INFO - args.local_rank : 0
+2024-12-01 15:19:54,525 - AdaPoinTr - INFO - args.num_workers : 4
+2024-12-01 15:19:54,525 - AdaPoinTr - INFO - args.seed : 0
+2024-12-01 15:19:54,525 - AdaPoinTr - INFO - args.deterministic : False
+2024-12-01 15:19:54,525 - AdaPoinTr - INFO - args.sync_bn : False
+2024-12-01 15:19:54,526 - AdaPoinTr - INFO - args.exp_name : test_example
+2024-12-01 15:19:54,526 - AdaPoinTr - INFO - args.start_ckpts : None
+2024-12-01 15:19:54,526 - AdaPoinTr - INFO - args.ckpts : /mnt/PreTrainModel/AdaPoinTr/AdaPoinTr_PCN.pth
+2024-12-01 15:19:54,526 - AdaPoinTr - INFO - args.val_freq : 1
+2024-12-01 15:19:54,526 - AdaPoinTr - INFO - args.resume : False
+2024-12-01 15:19:54,526 - AdaPoinTr - INFO - args.test : True
+2024-12-01 15:19:54,527 - AdaPoinTr - INFO - args.mode : None
+2024-12-01 15:19:54,527 - AdaPoinTr - INFO - args.experiment_path : ./experiments/AdaPoinTr/PCN_models/test_example
+2024-12-01 15:19:54,527 - AdaPoinTr - INFO - args.tfboard_path : ./experiments/AdaPoinTr/PCN_models/TFBoard/test_example
+2024-12-01 15:19:54,527 - AdaPoinTr - INFO - args.log_name : AdaPoinTr
+2024-12-01 15:19:54,527 - AdaPoinTr - INFO - args.use_gpu : True
+2024-12-01 15:19:54,527 - AdaPoinTr - INFO - args.distributed : False
+2024-12-01 15:19:54,528 - AdaPoinTr - INFO - config.optimizer = edict()
+2024-12-01 15:19:54,528 - AdaPoinTr - INFO - config.optimizer.type : AdamW
+2024-12-01 15:19:54,528 - AdaPoinTr - INFO - config.optimizer.kwargs = edict()
+2024-12-01 15:19:54,528 - AdaPoinTr - INFO - config.optimizer.kwargs.lr : 0.0001
+2024-12-01 15:19:54,528 - AdaPoinTr - INFO - config.optimizer.kwargs.weight_decay : 0.0005
+2024-12-01 15:19:54,529 - AdaPoinTr - INFO - config.scheduler = edict()
+2024-12-01 15:19:54,529 - AdaPoinTr - INFO - config.scheduler.type : LambdaLR
+2024-12-01 15:19:54,529 - AdaPoinTr - INFO - config.scheduler.kwargs = edict()
+2024-12-01 15:19:54,529 - AdaPoinTr - INFO - config.scheduler.kwargs.decay_step : 21
+2024-12-01 15:19:54,529 - AdaPoinTr - INFO - config.scheduler.kwargs.lr_decay : 0.9
+2024-12-01 15:19:54,529 - AdaPoinTr - INFO - config.scheduler.kwargs.lowest_decay : 0.02
+2024-12-01 15:19:54,530 - AdaPoinTr - INFO - config.bnmscheduler = edict()
+2024-12-01 15:19:54,530 - AdaPoinTr - INFO - config.bnmscheduler.type : Lambda
+2024-12-01 15:19:54,530 - AdaPoinTr - INFO - config.bnmscheduler.kwargs = edict()
+2024-12-01 15:19:54,530 - AdaPoinTr - INFO - config.bnmscheduler.kwargs.decay_step : 21
+2024-12-01 15:19:54,531 - AdaPoinTr - INFO - config.bnmscheduler.kwargs.bn_decay : 0.5
+2024-12-01 15:19:54,531 - AdaPoinTr - INFO - config.bnmscheduler.kwargs.bn_momentum : 0.9
+2024-12-01 15:19:54,531 - AdaPoinTr - INFO - config.bnmscheduler.kwargs.lowest_decay : 0.01
+2024-12-01 15:19:54,531 - AdaPoinTr - INFO - config.dataset = edict()
+2024-12-01 15:19:54,531 - AdaPoinTr - INFO - config.dataset.train = edict()
+2024-12-01 15:19:54,531 - AdaPoinTr - INFO - config.dataset.train._base_ = edict()
+2024-12-01 15:19:54,532 - AdaPoinTr - INFO - config.dataset.train._base_.NAME : PCN
+2024-12-01 15:19:54,532 - AdaPoinTr - INFO - config.dataset.train._base_.CATEGORY_FILE_PATH : data/PCN/PCN.json
+2024-12-01 15:19:54,532 - AdaPoinTr - INFO - config.dataset.train._base_.N_POINTS : 16384
+2024-12-01 15:19:54,532 - AdaPoinTr - INFO - config.dataset.train._base_.N_RENDERINGS : 8
+2024-12-01 15:19:54,532 - AdaPoinTr - INFO - config.dataset.train._base_.PARTIAL_POINTS_PATH : /mnt/dataset/ShapeNetCompletion/%s/partial/%s/%s/%02d.pcd
+2024-12-01 15:19:54,532 - AdaPoinTr - INFO - config.dataset.train._base_.COMPLETE_POINTS_PATH : /mnt/dataset/ShapeNetCompletion/%s/complete/%s/%s.pcd
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.train._base_.CARS : False
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.train.others = edict()
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.train.others.subset : train
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.train.others.bs : 16
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.val = edict()
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.val._base_ = edict()
+2024-12-01 15:19:54,533 - AdaPoinTr - INFO - config.dataset.val._base_.NAME : PCN
+2024-12-01 15:19:54,534 - AdaPoinTr - INFO - config.dataset.val._base_.CATEGORY_FILE_PATH : data/PCN/PCN.json
+2024-12-01 15:19:54,534 - AdaPoinTr - INFO - config.dataset.val._base_.N_POINTS : 16384
+2024-12-01 15:19:54,534 - AdaPoinTr - INFO - config.dataset.val._base_.N_RENDERINGS : 8
+2024-12-01 15:19:54,534 - AdaPoinTr - INFO - config.dataset.val._base_.PARTIAL_POINTS_PATH : /mnt/dataset/ShapeNetCompletion/%s/partial/%s/%s/%02d.pcd
+2024-12-01 15:19:54,534 - AdaPoinTr - INFO - config.dataset.val._base_.COMPLETE_POINTS_PATH : /mnt/dataset/ShapeNetCompletion/%s/complete/%s/%s.pcd
+2024-12-01 15:19:54,535 - AdaPoinTr - INFO - config.dataset.val._base_.CARS : False
+2024-12-01 15:19:54,535 - AdaPoinTr - INFO - config.dataset.val.others = edict()
+2024-12-01 15:19:54,535 - AdaPoinTr - INFO - config.dataset.val.others.subset : test
+2024-12-01 15:19:54,535 - AdaPoinTr - INFO - config.dataset.test = edict()
+2024-12-01 15:19:54,535 - AdaPoinTr - INFO - config.dataset.test._base_ = edict()
+2024-12-01 15:19:54,536 - AdaPoinTr - INFO - config.dataset.test._base_.NAME : PCN
+2024-12-01 15:19:54,536 - AdaPoinTr - INFO - config.dataset.test._base_.CATEGORY_FILE_PATH : data/PCN/PCN.json
+2024-12-01 15:19:54,536 - AdaPoinTr - INFO - config.dataset.test._base_.N_POINTS : 16384
+2024-12-01 15:19:54,536 - AdaPoinTr - INFO - config.dataset.test._base_.N_RENDERINGS : 8
+2024-12-01 15:19:54,536 - AdaPoinTr - INFO - config.dataset.test._base_.PARTIAL_POINTS_PATH : /mnt/dataset/ShapeNetCompletion/%s/partial/%s/%s/%02d.pcd
+2024-12-01 15:19:54,536 - AdaPoinTr - INFO - config.dataset.test._base_.COMPLETE_POINTS_PATH : /mnt/dataset/ShapeNetCompletion/%s/complete/%s/%s.pcd
+2024-12-01 15:19:54,537 - AdaPoinTr - INFO - config.dataset.test._base_.CARS : False
+2024-12-01 15:19:54,537 - AdaPoinTr - INFO - config.dataset.test.others = edict()
+2024-12-01 15:19:54,537 - AdaPoinTr - INFO - config.dataset.test.others.subset : test
+2024-12-01 15:19:54,537 - AdaPoinTr - INFO - config.model = edict()
+2024-12-01 15:19:54,537 - AdaPoinTr - INFO - config.model.NAME : AdaPoinTr
+2024-12-01 15:19:54,538 - AdaPoinTr - INFO - config.model.num_query : 512
+2024-12-01 15:19:54,538 - AdaPoinTr - INFO - config.model.num_points : 16384
+2024-12-01 15:19:54,538 - AdaPoinTr - INFO - config.model.center_num : [512, 256]
+2024-12-01 15:19:54,538 - AdaPoinTr - INFO - config.model.global_feature_dim : 1024
+2024-12-01 15:19:54,538 - AdaPoinTr - INFO - config.model.encoder_type : graph
+2024-12-01 15:19:54,538 - AdaPoinTr - INFO - config.model.decoder_type : fc
+2024-12-01 15:19:54,539 - AdaPoinTr - INFO - config.model.encoder_config = edict()
+2024-12-01 15:19:54,539 - AdaPoinTr - INFO - config.model.encoder_config.embed_dim : 384
+2024-12-01 15:19:54,539 - AdaPoinTr - INFO - config.model.encoder_config.depth : 6
+2024-12-01 15:19:54,539 - AdaPoinTr - INFO - config.model.encoder_config.num_heads : 6
+2024-12-01 15:19:54,539 - AdaPoinTr - INFO - config.model.encoder_config.k : 8
+2024-12-01 15:19:54,540 - AdaPoinTr - INFO - config.model.encoder_config.n_group : 2
+2024-12-01 15:19:54,540 - AdaPoinTr - INFO - config.model.encoder_config.mlp_ratio : 2.0
+2024-12-01 15:19:54,540 - AdaPoinTr - INFO - config.model.encoder_config.block_style_list : ['attn-graph', 'attn', 'attn', 'attn', 'attn', 'attn']
+2024-12-01 15:19:54,540 - AdaPoinTr - INFO - config.model.encoder_config.combine_style : concat
+2024-12-01 15:19:54,540 - AdaPoinTr - INFO - config.model.decoder_config = edict()
+2024-12-01 15:19:54,541 - AdaPoinTr - INFO - config.model.decoder_config.embed_dim : 384
+2024-12-01 15:19:54,541 - AdaPoinTr - INFO - config.model.decoder_config.depth : 8
+2024-12-01 15:19:54,541 - AdaPoinTr - INFO - config.model.decoder_config.num_heads : 6
+2024-12-01 15:19:54,541 - AdaPoinTr - INFO - config.model.decoder_config.k : 8
+2024-12-01 15:19:54,541 - AdaPoinTr - INFO - config.model.decoder_config.n_group : 2
+2024-12-01 15:19:54,542 - AdaPoinTr - INFO - config.model.decoder_config.mlp_ratio : 2.0
+2024-12-01 15:19:54,542 - AdaPoinTr - INFO - config.model.decoder_config.self_attn_block_style_list : ['attn-graph', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn']
+2024-12-01 15:19:54,542 - AdaPoinTr - INFO - config.model.decoder_config.self_attn_combine_style : concat
+2024-12-01 15:19:54,542 - AdaPoinTr - INFO - config.model.decoder_config.cross_attn_block_style_list : ['attn-graph', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn']
+2024-12-01 15:19:54,542 - AdaPoinTr - INFO - config.model.decoder_config.cross_attn_combine_style : concat
+2024-12-01 15:19:54,543 - AdaPoinTr - INFO - config.total_bs : 16
+2024-12-01 15:19:54,543 - AdaPoinTr - INFO - config.step_per_update : 1
+2024-12-01 15:19:54,543 - AdaPoinTr - INFO - config.max_epoch : 600
+2024-12-01 15:19:54,543 - AdaPoinTr - INFO - config.consider_metric : CDL1
+2024-12-01 15:19:54,543 - AdaPoinTr - INFO - Distributed training: False
+2024-12-01 15:19:54,544 - AdaPoinTr - INFO - Set random seed to 0, deterministic: False
+2024-12-01 15:19:54,545 - AdaPoinTr - INFO - Tester start ... 
+2024-12-01 15:19:55,979 - AdaPoinTr - INFO - Loading weights from /mnt/PreTrainModel/AdaPoinTr/AdaPoinTr_PCN.pth...
+2024-12-01 15:19:58,445 - AdaPoinTr - INFO - ckpts @ 353 epoch( performance = {'F-Score': 0.8446799506656607, 'CDL1': 6.527985830404605, 'CDL2': 0.19307194130320907, 'EMDistance': 0.0})
+2024-12-01 15:21:40,721 - AdaPoinTr - INFO - [TEST] Metrics = ['0.8583', '6.2482', '0.1726', '23.2005']
+2024-12-01 15:21:40,724 - AdaPoinTr - INFO - ============================ TEST RESULTS ============================
+2024-12-01 15:21:40,725 - AdaPoinTr - INFO - Taxonomy	#Sample	F-Score	CDL1	CDL2	EMDistance	#ModelName	
+2024-12-01 15:21:40,725 - AdaPoinTr - INFO - 02691156	15	0.975 	3.272 	0.038 	13.533 	airplane	
+2024-12-01 15:21:40,726 - AdaPoinTr - INFO - 02933112	17	0.765 	8.163 	0.245 	32.163 	cabinet	
+2024-12-01 15:21:40,726 - AdaPoinTr - INFO - 02958343	13	0.829 	7.066 	0.190 	28.319 	car	
+2024-12-01 15:21:40,726 - AdaPoinTr - INFO - 03001627	11	0.831 	7.119 	0.227 	22.278 	chair	
+2024-12-01 15:21:40,727 - AdaPoinTr - INFO - 03636649	17	0.920 	4.811 	0.109 	20.238 	lamp	
+2024-12-01 15:21:40,727 - AdaPoinTr - INFO - 04256520	16	0.787 	7.840 	0.310 	29.346 	sofa	
+2024-12-01 15:21:40,728 - AdaPoinTr - INFO - 04379243	16	0.908 	5.594 	0.118 	17.753 	table	
+2024-12-01 15:21:40,728 - AdaPoinTr - INFO - 04530566	12	0.852 	6.121 	0.145 	21.974 	watercraft	
+2024-12-01 15:21:40,729 - AdaPoinTr - INFO - Overall 		0.858 	6.248 	0.173 	23.200 	

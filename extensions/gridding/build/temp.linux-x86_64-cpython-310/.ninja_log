@@ -1,0 +1,7 @@
+# ninja log v5
+1	26182	1711191918728019333	/mnt/PoinTr/extensions/gridding/build/temp.linux-x86_64-cpython-310/gridding_cuda.o	bf814dcb64ff2e85
+1	63899	1711191956449372310	/mnt/PoinTr/extensions/gridding/build/temp.linux-x86_64-cpython-310/gridding.o	656b8c932c0e76a4
+2	67477	1711191960027685835	/mnt/PoinTr/extensions/gridding/build/temp.linux-x86_64-cpython-310/gridding_reverse.o	b0f278e817e8ecb2
+11	41284	1733066110609277093	/mnt/PointDA/extensions/gridding/build/temp.linux-x86_64-cpython-310/gridding_cuda.o	ccdbb5d86daa9976
+11	98032	1733066167372005848	/mnt/PointDA/extensions/gridding/build/temp.linux-x86_64-cpython-310/gridding.o	119ea5a84aa50d56
+12	98828	1733066168167140398	/mnt/PointDA/extensions/gridding/build/temp.linux-x86_64-cpython-310/gridding_reverse.o	ce47ffc5d2cf1383
