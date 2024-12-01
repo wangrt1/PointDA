@@ -29,20 +29,18 @@ bash install.sh
 To inference sample(s) with pretrained model
 
 ```
-python tools/inference.py \
-${POINTR_CONFIG_FILE} ${POINTR_CHECKPOINT_FILE} \
-[--pc_root <path> or --pc <file>] \
-[--save_vis_img] \
-[--out_pc_root <dir>] \
+bash ./scripts/test.sh<GPU_IDS>  \
+    --ckpts <path> \
+    --config <config> \
+    --exp_name <name> \
 ```
 
 For example, inference all samples under `demo/` and save the results under `inference_result/`
 ```
-python tools/inference.py \
-cfgs/PCN_models/AdaPoinTr.yaml ckpts/AdaPoinTr_PCN.pth \
---pc_root demo/ \ 
---save_vis_img  \
---out_pc_root inference_result/ \
+ bash ./scripts/test.sh 0 \
+    --ckpts /mnt/PreTrainModel/PointDA/PointDA_Pretrained.pth  \
+    --config ./cfgs/Scanslon_models/PointDA.yaml  \
+    --exp_name example
 ```
 
 ### Training
