@@ -63,6 +63,7 @@ def run_net(args, config, train_writer=None, val_writer=None):
     else:
         print_log('Using Data parallel ...' , logger = logger)
         base_model = nn.DataParallel(base_model).cuda()
+        sourceonly_model = nn.DataParallel(sourceonly_model).cuda()
     # optimizer & scheduler
     optimizer = builder.build_optimizer(base_model, config)
     
@@ -93,16 +94,15 @@ def run_net(args, config, train_writer=None, val_writer=None):
 
         base_model.train()  # set model to training mode
         n_batches = len(train_dataloader)
+
         for idx, (taxonomy_ids, model_ids, data) in enumerate(train_dataloader):
             data_time.update(time.time() - batch_start_time)
             npoints = config.dataset.train._base_.N_POINTS
             dataset_name = config.dataset.train._base_.NAME
-            if dataset_name == 'PCN' or dataset_name == 'Completion3D' or dataset_name == 'Projected_ShapeNet':
+            if dataset_name == 'Completion3D' or dataset_name == 'ScanSalon':
                 partial = data[0].cuda()
                 gt = data[1].cuda()
                 if config.dataset.train._base_.CARS:
-                    if idx == 0:
-                        print_log('padding while KITTI training', logger=logger)
                     partial = misc.random_dropping(partial, epoch) # specially for KITTI finetune
 
             elif dataset_name == 'ShapeNet':
@@ -113,13 +113,41 @@ def run_net(args, config, train_writer=None, val_writer=None):
                 raise NotImplementedError(f'Train phase do not support {dataset_name}')
 
             num_iter += 1
-           
-            ret = base_model(partial)
+
+            if mode = 'so_p':
+            # Source only 
+                sourceonly_model.train()
+                base_model.eval()
+
+                ret_s = sourceonly_model(partial)
+                sparse_loss, dense_loss = base_model.module.get_loss(ret_s, gt, epoch)
             
-            sparse_loss, dense_loss = base_model.module.get_loss(ret, gt, epoch)
-         
-            _loss = sparse_loss + dense_loss 
-            _loss.backward()
+                _loss = sparse_loss + dense_loss 
+                _loss.backward()
+            elif mode = 'da_p':
+            # DA
+                sourceonly_model.eval()
+                base_model.train()
+                ret_s = sourceonly_model(partial)
+                ret_t = base_model(partial,ret_s[-1])
+                
+                sparse_loss, dense_loss = base_model.module.get_loss(ret, gt, epoch)
+            
+                _loss = sparse_loss + dense_loss 
+                _loss.backward()
+            elif mode = 'ss_p':
+            # self-supervised
+                self.model_sp.eval()
+                self.model_sc.train()
+                ret_s = sourceonly_model(partial)
+                ret_t = base_model(partial,ret_s[-1])
+                
+                sparse_loss, dense_loss = base_model.module.get_loss(ret, gt, epoch)
+            
+                _loss = sparse_loss + dense_loss 
+                _loss.backward()
+
+
 
             # forward
             if num_iter == config.step_per_update:
