@@ -452,21 +452,21 @@ class SourceOnly(nn.Module):
 
         coarse_point_cloud = self.coarse_pred(global_feature).reshape(bs, -1, 3)  #  B M C(3)
 
-        new_knn_index = get_knn_index(coarse_point_cloud.transpose(1, 2).contiguous())
-        cross_knn_index = get_knn_index(coor_k=coor, coor_q=coarse_point_cloud.transpose(1, 2).contiguous())
+        # NOTE: foldingNet
+        relative_xyz = self.foldingnet(rebuild_feature).reshape(B, M, 3, -1)    # B M 3 S
+        rebuild_points = (relative_xyz + coarse_point_cloud.unsqueeze(-1)).transpose(2,3).reshape(B, -1, 3)  # B N 3
 
-        query_feature = torch.cat([
-            global_feature.unsqueeze(1).expand(-1, self.num_query, -1), 
-            coarse_point_cloud], dim=-1) # B M C+3 
-        q = self.mlp_query(query_feature.transpose(1,2)).transpose(1,2) # B M C 
-        # decoder
-        for i, blk in enumerate(self.decoder):
-            if i < self.knn_layer:
-                q = blk(q, x, new_knn_index, cross_knn_index)   # B M C
-            else:
-                q = blk(q, x)
+        # NOTE: fc
+        # relative_xyz = self.refine(rebuild_feature)  # BM 3S
+        # rebuild_points = (relative_xyz.reshape(B,M,3,-1) + coarse_point_cloud.unsqueeze(-1)).transpose(2,3).reshape(B, -1, 3)
 
-        return q, coarse_point_cloud, global_feature
+        # cat the input
+        inp_sparse = fps(xyz, self.num_query)
+        coarse_point_cloud = torch.cat([coarse_point_cloud, inp_sparse], dim=1).contiguous()
+        rebuild_points = torch.cat([rebuild_points, xyz],dim=1).contiguous()
+
+        ret = (coarse_point_cloud, rebuild_points, global_feature)
+        return ret
 
 class PointDA(nn.Module):
     """ Vision Transformer with support for point cloud completion
@@ -624,19 +624,19 @@ class PointDA(nn.Module):
 
         coarse_point_cloud = self.coarse_pred(global_feature).reshape(bs, -1, 3)  #  B M C(3)
 
-        new_knn_index = get_knn_index(coarse_point_cloud.transpose(1, 2).contiguous())
-        cross_knn_index = get_knn_index(coor_k=coor, coor_q=coarse_point_cloud.transpose(1, 2).contiguous())
+        # NOTE: foldingNet
+        relative_xyz = self.foldingnet(rebuild_feature).reshape(B, M, 3, -1)    # B M 3 S
+        rebuild_points = (relative_xyz + coarse_point_cloud.unsqueeze(-1)).transpose(2,3).reshape(B, -1, 3)  # B N 3
 
-        query_feature = torch.cat([
-            global_feature.unsqueeze(1).expand(-1, self.num_query, -1), 
-            coarse_point_cloud], dim=-1) # B M C+3 
-        q = self.mlp_query(query_feature.transpose(1,2)).transpose(1,2) # B M C 
-        # decoder
-        for i, blk in enumerate(self.decoder):
-            if i < self.knn_layer:
-                q = blk(q, x, new_knn_index, cross_knn_index)   # B M C
-            else:
-                q = blk(q, x)
+        # NOTE: fc
+        # relative_xyz = self.refine(rebuild_feature)  # BM 3S
+        # rebuild_points = (relative_xyz.reshape(B,M,3,-1) + coarse_point_cloud.unsqueeze(-1)).transpose(2,3).reshape(B, -1, 3)
 
-        return q, coarse_point_cloud
+        # cat the input
+        inp_sparse = fps(xyz, self.num_query)
+        coarse_point_cloud = torch.cat([coarse_point_cloud, inp_sparse], dim=1).contiguous()
+        rebuild_points = torch.cat([rebuild_points, xyz],dim=1).contiguous()
+
+        ret = (coarse_point_cloud, rebuild_points)
+        return ret
 
