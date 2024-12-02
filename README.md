@@ -67,6 +67,6 @@ bash ./scripts/train.sh <GPUIDS> \
 Train a PoinTr model on PCN benchmark with 2 gpus:
 ```
 CUDA_VISIBLE_DEVICES=0,1 bash ./scripts/dist_train.sh 2 13232 \
-    --config ./cfgs/PCN_models/PoinTr.yaml \
+    --config ./cfgs/Scanslon_models/PointDA.yaml \
     --exp_name example
 ```
