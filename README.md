@@ -66,7 +66,7 @@ bash ./scripts/train.sh <GPUIDS> \
 ####  Some examples:
 Train a PoinTr model on PCN benchmark with 2 gpus:
 ```
-CUDA_VISIBLE_DEVICES=0,1 bash ./scripts/dist_train.sh 2 13232 \
+bash ./scripts/train.sh 0 \
     --config ./cfgs/Scanslon_models/PointDA.yaml \
     --exp_name example
 ```
