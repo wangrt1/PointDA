@@ -17,9 +17,11 @@ def run_net(args, config, train_writer=None, val_writer=None):
     (train_sampler, train_dataloader), (_, test_dataloader) = builder.dataset_builder(args, config.dataset.train), \
                                                             builder.dataset_builder(args, config.dataset.val)
     # build model
-    base_model = builder.model_builder(config.model)
+    base_model,sourceonly_model = builder.model_builder(config.model)
+
     if args.use_gpu:
         base_model.to(args.local_rank)
+        sourceonly_model.to(args.local_rank)
 
     # from IPython import embed; embed()
     
